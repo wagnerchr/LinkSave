@@ -1,0 +1,22 @@
+body {
+    margin: 0px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+    width: 100%;    /* width 100% não respeita o padding 10 px do body*/
+    padding: 10px;
+    box-sizing: border-box; /* inclui o padding */
+    border: 1px solid purple;
+
+    margin-bottom: 5px;
+}
+
+button {
+    background-color: darkcyan;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+}
