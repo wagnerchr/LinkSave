@@ -1,20 +1,40 @@
 let links = []
-const inputEl = document.getElementById("input-el")
+const inputText = document.getElementById("input-txt")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
 
-inputBtn.addEventListener('click', function() {
-    links.push(inputEl.value)
+// Leads
+let leadsSaved = JSON.parse( localStorage.getItem("links"))
 
+if (leadsSaved) {
+    links = leadsSaved
     renderLeads()
-    links = []
+}
+
+inputBtn.addEventListener('click', function() {
+// add valor do input e limpa oque foi digitado
+    links.push(inputText.value)
+    inputText.values = ""
+
+    localStorage.setItem("links", JSON.stringify(links))
+    renderLeads()
+
+    console.log(localStorage.getItem("links"))
 })
 
 function renderLeads() {
+    let list = ""
      for (let link in links) {
-        const li = document.createElement("li") // criando uma lista. Melhor que innerHTML
-        li.textContent = links[link]
-        ulEl.append(li)
+         list += `
+            <li>
+                <a target='_blank' href='${links[link]}'>
+                    ${links[link]}
+                </a>
+            </li>
+         `
+        // const li = document.createElement("li") // criando uma lista. Melhor que innerHTML
+        // li.textContent = links[link]
+        // ulEl.append(li)
     }
-   
+    ulEl.innerHTML = list
 }
