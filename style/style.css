@@ -37,9 +37,9 @@ li a{
 }
 
 ul li span {
-    position: absolute;
     top: 0;
-    right: 0;
+    right: 10px;
+    position: absolute;
     width: 25px;
     text-align: center;
     background: wheat;
